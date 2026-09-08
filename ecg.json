@@ -1,0 +1,232 @@
+{
+  "global_settings": {
+    "coupling": 100,
+    "speed": 100
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "class_name": "ConstantSignalNode",
+      "pos_x": -940.0,
+      "pos_y": -256.0,
+      "width": 200.0,
+      "height": 180.0,
+      "config": {
+        "inputs": {},
+        "outputs": {
+          "signal": "signal"
+        },
+        "input_data": {},
+        "node_title": "Constant Signal",
+        "value": 1.0
+      },
+      "custom_state_file": null
+    },
+    {
+      "id": 1,
+      "class_name": "HomeostaticCouplerNode",
+      "pos_x": -688.0,
+      "pos_y": -416.0,
+      "width": 459.0,
+      "height": 190.0,
+      "config": {
+        "inputs": {
+          "signal_in": "signal",
+          "image_in": "image",
+          "setpoint_mod": "signal",
+          "gain_mod": "signal"
+        },
+        "outputs": {
+          "signal_out": "signal",
+          "image_out": "image",
+          "error": "signal",
+          "regime": "signal",
+          "history_plot": "image"
+        },
+        "input_data": {
+          "signal_in": [
+            0.0,
+            0.0,
+            0.375,
+            1.0
+          ],
+          "image_in": [],
+          "setpoint_mod": [
+            1.0
+          ],
+          "gain_mod": []
+        },
+        "node_title": "Homeostatic Coupler",
+        "setpoint": 0.5,
+        "gain": 1.0,
+        "sharpness": 3.0,
+        "dead_zone": 0.1,
+        "mode": "edge_of_chaos",
+        "integral_gain": 0.01,
+        "integral_state": 1.1636187981416324,
+        "integral_limit": 0.5,
+        "target_variance": 0.1,
+        "variance_window": 50,
+        "current_value": 1.375,
+        "output_value": 0.8739509815096245,
+        "error_value": 0.2965453866853446,
+        "regime_value": -1.0,
+        "image_gain_state": 1.0
+      },
+      "custom_state_file": null
+    },
+    {
+      "id": 2,
+      "class_name": "CheckerboardNode",
+      "pos_x": -185.0,
+      "pos_y": -453.0,
+      "width": 200.0,
+      "height": 180.0,
+      "config": {
+        "inputs": {
+          "square_size": "signal"
+        },
+        "outputs": {
+          "image": "image"
+        },
+        "input_data": {
+          "square_size": [
+            0.8739509815096245
+          ]
+        },
+        "node_title": "Checkerboard",
+        "size": 256
+      },
+      "custom_state_file": null
+    },
+    {
+      "id": 3,
+      "class_name": "ImageToVectorNode",
+      "pos_x": -1142.0,
+      "pos_y": -561.0,
+      "width": 200.0,
+      "height": 180.0,
+      "config": {
+        "inputs": {
+          "image_in": "image"
+        },
+        "outputs": {
+          "vector_out": "spectrum"
+        },
+        "node_title": "Image -> Vector",
+        "output_dim": 256
+      },
+      "custom_state_file": null
+    },
+    {
+      "id": 4,
+      "class_name": "VectorSplitterNode",
+      "pos_x": -1235.0,
+      "pos_y": -290.0,
+      "width": 200.0,
+      "height": 180.0,
+      "config": {
+        "inputs": {
+          "spectrum_in": "spectrum",
+          "scale_mod": "signal"
+        },
+        "outputs": {
+          "out_0": "signal",
+          "out_1": "signal",
+          "out_2": "signal",
+          "out_3": "signal",
+          "out_4": "signal",
+          "out_5": "signal",
+          "out_6": "signal",
+          "out_7": "signal",
+          "out_8": "signal",
+          "out_9": "signal",
+          "out_10": "signal",
+          "out_11": "signal",
+          "out_12": "signal",
+          "out_13": "signal",
+          "out_14": "signal",
+          "out_15": "signal"
+        },
+        "node_title": "Vector Splitter",
+        "num_outputs": 16,
+        "scale": 1.0,
+        "out_0_val": 0.0,
+        "out_1_val": 0.0,
+        "out_2_val": 0.3125,
+        "out_3_val": 1.0,
+        "out_4_val": 1.0,
+        "out_5_val": 0.375,
+        "out_6_val": 0.0,
+        "out_7_val": 0.0,
+        "out_8_val": 0.9375,
+        "out_9_val": 1.0,
+        "out_10_val": 0.75,
+        "out_11_val": 0.0,
+        "out_12_val": 0.0,
+        "out_13_val": 0.5625,
+        "out_14_val": 1.0,
+        "out_15_val": 1.0
+      },
+      "custom_state_file": null
+    }
+  ],
+  "edges": [
+    {
+      "from_node_id": 0,
+      "from_port": "signal",
+      "to_node_id": 1,
+      "to_port": "setpoint_mod",
+      "learned_weight": 1.0
+    },
+    {
+      "from_node_id": 1,
+      "from_port": "signal_out",
+      "to_node_id": 2,
+      "to_port": "square_size",
+      "learned_weight": 1.0
+    },
+    {
+      "from_node_id": 2,
+      "from_port": "image",
+      "to_node_id": 3,
+      "to_port": "image_in",
+      "learned_weight": 1.0
+    },
+    {
+      "from_node_id": 3,
+      "from_port": "vector_out",
+      "to_node_id": 4,
+      "to_port": "spectrum_in",
+      "learned_weight": 1.0
+    },
+    {
+      "from_node_id": 4,
+      "from_port": "out_0",
+      "to_node_id": 1,
+      "to_port": "signal_in",
+      "learned_weight": 1.0
+    },
+    {
+      "from_node_id": 4,
+      "from_port": "out_1",
+      "to_node_id": 1,
+      "to_port": "signal_in",
+      "learned_weight": 1.0
+    },
+    {
+      "from_node_id": 4,
+      "from_port": "out_2",
+      "to_node_id": 1,
+      "to_port": "signal_in",
+      "learned_weight": 1.0
+    },
+    {
+      "from_node_id": 4,
+      "from_port": "out_3",
+      "to_node_id": 1,
+      "to_port": "signal_in",
+      "learned_weight": 1.0
+    }
+  ]
+}
