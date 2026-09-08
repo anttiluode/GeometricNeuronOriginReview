@@ -1,5 +1,7 @@
 # GeometricNeuronOriginReview
 
+![pic](pic.png)
+
 **ECG JSON / ECG-like pulse finally explained**
 
 This repository freezes the small Perception Lab graph that helped start the later Geometric Neuron / Operaattori / SighImageSuper line of work.
