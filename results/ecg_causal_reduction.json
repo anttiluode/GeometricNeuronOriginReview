@@ -1,0 +1,436 @@
+{
+  "R1_reference": {
+    "loaded_state": {
+      "coupling_strength": 1.0,
+      "mode": "edge_of_chaos",
+      "variance_window": 50,
+      "effective_setpoint": 0.6,
+      "restored_output_value": 0.8739509815096245,
+      "history_restored": false,
+      "splitter_outputs_restored": false
+    },
+    "first_ticks_r": [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      2.531915,
+      2.531915,
+      2.531915,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      2.531915
+    ],
+    "first_ticks_q": [
+      48,
+      -14,
+      -14,
+      -14,
+      81,
+      84,
+      84,
+      84,
+      -14,
+      -14,
+      -14,
+      23
+    ],
+    "square_size_range_after_tick_500": [
+      -11,
+      84
+    ],
+    "distinct_square_sizes_after_tick_500": [
+      -11,
+      -9,
+      23,
+      40,
+      42,
+      43,
+      48,
+      49,
+      51,
+      78,
+      84
+    ],
+    "visual_period_of_r_last_1000": 59
+  },
+  "R2_response_function": {
+    "256": {
+      "blindness_threshold_positive_q": 64,
+      "distinct_values": 83,
+      "F_at_q": {
+        "-14": 2.531914860010147,
+        "-5": 3.7352941036224365,
+        "5": 3.7058823108673096,
+        "10": 3.7058823704719543,
+        "23": 1.4375,
+        "32": 2.0,
+        "48": 1.0,
+        "64": 0.0,
+        "81": 0.0,
+        "84": 0.0
+      }
+    },
+    "1024": {
+      "blindness_threshold_positive_q": 32,
+      "distinct_values": 39,
+      "F_at_q": {
+        "-14": 1.90625,
+        "-5": 3.7647058963775635,
+        "5": 3.7058823704719543,
+        "10": 1.5,
+        "23": 1.125,
+        "32": 0.0,
+        "48": 0.0,
+        "64": 0.0,
+        "81": 0.0,
+        "84": 0.0
+      }
+    },
+    "2048": {
+      "blindness_threshold_positive_q": 23,
+      "distinct_values": 39,
+      "F_at_q": {
+        "-14": 1.669677734375,
+        "-5": 2.428102135658264,
+        "5": 2.248469427227974,
+        "10": 1.796875,
+        "23": 0.0,
+        "32": 0.0,
+        "48": 0.0,
+        "64": 0.0,
+        "81": 0.0,
+        "84": 0.0
+      }
+    }
+  },
+  "R2_fixed_footprint_equals_original_at_D256": true,
+  "R3_equivalence": {
+    "256": {
+      "ticks": 3000,
+      "first_mismatch_tick": null,
+      "max_abs_difference": 0.0
+    },
+    "1024": {
+      "ticks": 3000,
+      "first_mismatch_tick": null,
+      "max_abs_difference": 0.0
+    },
+    "2048": {
+      "ticks": 3000,
+      "first_mismatch_tick": null,
+      "max_abs_difference": 0.0
+    }
+  },
+  "R4_interventions": {
+    "baseline_D256": {
+      "transient_ticks": 80,
+      "period": 59,
+      "input_values_on_cycle": [
+        0.0,
+        0.8125,
+        0.9375,
+        1.0,
+        1.3125,
+        1.375,
+        1.4375,
+        1.5,
+        3.465753,
+        3.876923
+      ],
+      "output_min_max": [
+        -0.33618583100100496,
+        1.580579922165954
+      ],
+      "ticks_damping": 53,
+      "ticks_amplifying": 6
+    },
+    "integral_state_perturbed_to_pm_1e9_identical_trajectory": true,
+    "feedback_clamped_at_tick_1000": {
+      "cycle_mean": {
+        "clamp_value": 1.1647063806905584,
+        "output_range_last_200": 0.0,
+        "ticks_after_clamp_until_constant": 49,
+        "final_output": 1.5784064228316388
+      },
+      "zero": {
+        "clamp_value": 0.0,
+        "output_range_last_200": 0.0,
+        "ticks_after_clamp_until_constant": 49,
+        "final_output": -0.38367485769368026
+      },
+      "max_input": {
+        "clamp_value": 3.876923084259033,
+        "output_range_last_200": 0.0,
+        "ticks_after_clamp_until_constant": 49,
+        "final_output": 1.5999999999917618
+      }
+    },
+    "delay_only": {
+      "1": {
+        "period": 52,
+        "transient_ticks": 111
+      },
+      "2": {
+        "period": 55,
+        "transient_ticks": 111
+      },
+      "3": {
+        "period": 57,
+        "transient_ticks": 113
+      },
+      "4": {
+        "period": 59,
+        "transient_ticks": 80
+      },
+      "5": {
+        "period": 61,
+        "transient_ticks": 118
+      },
+      "6": {
+        "period": 63,
+        "transient_ticks": 119
+      },
+      "8": {
+        "period": 67,
+        "transient_ticks": 134
+      },
+      "12": {
+        "period": 75,
+        "transient_ticks": 207
+      }
+    },
+    "window_only": {
+      "20": {
+        "period": 28,
+        "transient_ticks": 89
+      },
+      "30": {
+        "period": 38,
+        "transient_ticks": 82
+      },
+      "40": {
+        "period": 49,
+        "transient_ticks": 144
+      },
+      "50": {
+        "period": 59,
+        "transient_ticks": 80
+      },
+      "60": {
+        "period": 70,
+        "transient_ticks": 140
+      },
+      "70": {
+        "period": 81,
+        "transient_ticks": 235
+      },
+      "80": {
+        "period": 91,
+        "transient_ticks": 183
+      }
+    },
+    "size_in_clipped_to_0_1": {
+      "period": 62,
+      "transient_ticks": 118,
+      "ticks_damping": 50,
+      "ticks_amplifying": 12,
+      "output_min_max": [
+        0.4955881779532465,
+        1.5972569923130857
+      ]
+    },
+    "one_tick_loop_reconstruction": {
+      "window_50": 52,
+      "window_30": 32
+    },
+    "dimension": {
+      "256": {
+        "original": {
+          "period": 59,
+          "transient_ticks": 80,
+          "square_sizes_on_cycle": [
+            -11,
+            -9,
+            23,
+            40,
+            42,
+            43,
+            48,
+            49,
+            51,
+            78,
+            84
+          ],
+          "blindness_threshold": 64,
+          "fraction_of_cycle_in_blind_region": 0.06779661016949153,
+          "ticks_damping": 53,
+          "ticks_amplifying": 6
+        },
+        "fixed_footprint": {
+          "period": 59,
+          "transient_ticks": 80,
+          "square_sizes_on_cycle": [
+            -11,
+            -9,
+            23,
+            40,
+            42,
+            43,
+            48,
+            49,
+            51,
+            78,
+            84
+          ],
+          "blindness_threshold": 64,
+          "fraction_of_cycle_in_blind_region": 0.06779661016949153,
+          "ticks_damping": 53,
+          "ticks_amplifying": 6
+        }
+      },
+      "1024": {
+        "original": {
+          "period": 8,
+          "transient_ticks": 64,
+          "square_sizes_on_cycle": [
+            23,
+            45
+          ],
+          "blindness_threshold": 32,
+          "fraction_of_cycle_in_blind_region": 0.5,
+          "ticks_damping": 8,
+          "ticks_amplifying": 0
+        },
+        "fixed_footprint": {
+          "period": 113,
+          "transient_ticks": 113,
+          "square_sizes_on_cycle": [
+            -11,
+            -9,
+            -8,
+            23,
+            40,
+            42,
+            43,
+            48,
+            49,
+            51,
+            78,
+            80,
+            81,
+            82,
+            83,
+            84
+          ],
+          "blindness_threshold": 64,
+          "fraction_of_cycle_in_blind_region": 0.07079646017699115,
+          "ticks_damping": 101,
+          "ticks_amplifying": 12
+        }
+      },
+      "2048": {
+        "original": {
+          "period": 56,
+          "transient_ticks": 62,
+          "square_sizes_on_cycle": [
+            -14,
+            -12,
+            23,
+            50,
+            84
+          ],
+          "blindness_threshold": 23,
+          "fraction_of_cycle_in_blind_region": 0.9285714285714286,
+          "ticks_damping": 51,
+          "ticks_amplifying": 5
+        },
+        "fixed_footprint": {
+          "period": 56,
+          "transient_ticks": 122,
+          "square_sizes_on_cycle": [
+            -11,
+            -8,
+            23,
+            40,
+            42,
+            43,
+            48,
+            49,
+            51,
+            80,
+            83,
+            84
+          ],
+          "blindness_threshold": 64,
+          "fraction_of_cycle_in_blind_region": 0.07142857142857142,
+          "ticks_damping": 50,
+          "ticks_amplifying": 6
+        }
+      }
+    }
+  },
+  "R5_split_test": {
+    "note": "same multiset and same last sample, so same current input, mean and variance; divergence = a different regime or a difference above 1e-9",
+    "phases": [
+      {
+        "phase": 0,
+        "distinct_permutations": 200,
+        "futures_changed": 200,
+        "median_ticks_to_divergence": 35.0,
+        "window_mean": 1.160603529214859,
+        "window_var": 0.39376090433141875
+      },
+      {
+        "phase": 9,
+        "distinct_permutations": 200,
+        "futures_changed": 200,
+        "median_ticks_to_divergence": 32.0,
+        "window_mean": 1.163103529214859,
+        "window_var": 0.39654538668534456
+      },
+      {
+        "phase": 18,
+        "distinct_permutations": 200,
+        "futures_changed": 200,
+        "median_ticks_to_divergence": 23.0,
+        "window_mean": 1.169353529214859,
+        "window_var": 0.396420655070159
+      },
+      {
+        "phase": 27,
+        "distinct_permutations": 200,
+        "futures_changed": 200,
+        "median_ticks_to_divergence": 14.0,
+        "window_mean": 1.169353529214859,
+        "window_var": 0.39642065507015894
+      },
+      {
+        "phase": 36,
+        "distinct_permutations": 200,
+        "futures_changed": 200,
+        "median_ticks_to_divergence": 5.0,
+        "window_mean": 1.169353529214859,
+        "window_var": 0.39642065507015883
+      },
+      {
+        "phase": 45,
+        "distinct_permutations": 200,
+        "futures_changed": 200,
+        "median_ticks_to_divergence": 0.0,
+        "window_mean": 1.15375,
+        "window_var": 0.03378281250000001
+      },
+      {
+        "phase": 54,
+        "distinct_permutations": 200,
+        "futures_changed": 200,
+        "median_ticks_to_divergence": 34.0,
+        "window_mean": 1.168103529214859,
+        "window_var": 0.38801435139319596
+      }
+    ]
+  }
+}

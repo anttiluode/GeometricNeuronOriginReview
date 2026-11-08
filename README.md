@@ -4,6 +4,8 @@
 
 **ECG JSON / ECG-like pulse finally explained**
 
+> **Update, 8 November 2026: [causal reduction](docs/CAUSAL_REDUCTION.md).** The whole image branch can be replaced by one lookup table r = F_D(q) with a bit-exact identical trajectory. The faithful reload has an exact period of **59** ticks, because the host's loop takes four ticks. The September "52" is exactly what a one-tick loop gives. The integral state is never read in this mode. Clamping the feedback stops the rhythm, and permuting the controller's window (same mean and variance) changes the future every time. Two statements below are corrected in place.
+
 This repository freezes the small Perception Lab graph that helped start the later Geometric Neuron / Operaattori / SighImageSuper line of work.
 
 The original graph is [`ecg.json`](ecg.json). The node implementations used by that graph are copied here so the mechanism can be audited without relying on memory or on a later Perception Lab version.
@@ -98,7 +100,7 @@ target_variance = 0.1
 variance_window = 50
 ```
 
-The controller also keeps a slower integral/setpoint state.
+~~The controller also keeps a slower integral/setpoint state.~~ *Corrected:* in `edge_of_chaos` mode the controller updates `integral_state` but never reads it, so setting it to ±1e9 leaves the trajectory identical ([causal reduction](docs/CAUSAL_REDUCTION.md)).
 
 The resulting loop is therefore not a simple oscillator. It is a nonlinear delayed feedback system:
 
@@ -115,7 +117,7 @@ new spatial measurement
       -> ...
 ```
 
-In the reconstruction used during the September 2026 review, the 256-dimensional setup produced a long rhythm of roughly 52 ticks under the stated one-tick update schedule. Changing only `variance_window` from 50 to 30 changed that long rhythm to roughly 32 ticks. The 1024-dimensional setup instead fell into a short alternating regime. The exact waveform depends on scheduler details and node implementation, so these numbers should be treated as a reconstruction receipt rather than a biological claim.
+In the reconstruction used during the September 2026 review, the 256-dimensional setup produced a long rhythm of roughly 52 ticks under the stated one-tick update schedule. Changing only `variance_window` from 50 to 30 changed that long rhythm to roughly 32 ticks. *(8 Nov: a one-tick loop gives exactly 52 and 32. Perception Lab's real scheduler makes the loop four ticks long, which gives exactly 59 and 38.)* The 1024-dimensional setup instead fell into a short alternating regime. The exact waveform depends on scheduler details and node implementation, so these numbers should be treated as a reconstruction receipt rather than a biological claim.
 
 The strong clue is the `window + small scheduler offset` relation: the long pulse occurs when old high-variance samples leave the controller's finite window, allowing a switch from damping back to excitation.
 
@@ -131,7 +133,7 @@ square_size = int(5 + size_in * 50)
 
 but does not clip `size_in` to `[0,1]` even though the comment describes it as a 0-1 control.
 
-That can alter the exact pulse shape when the coupler leaves the nominal range. It is worth preserving as part of the historical mechanism, but it is not the main conceptual result.
+That can alter the exact pulse shape when the coupler leaves the nominal range. It is worth preserving as part of the historical mechanism, but it is not the main conceptual result. *(8 Nov: the faithful cycle does visit negative square sizes, −11 and −9. Clipping to [0, 1] keeps a rhythm but changes it: period 62 instead of 59.)*
 
 ---
 
@@ -187,5 +189,7 @@ That is much stronger, and much more defensible, than saying that the old ECG lo
 - [`vectorsplitternode.py`](vectorsplitternode.py) — first-value breakout
 - [`coupler.py`](coupler.py) — finite-memory homeostatic/edge-of-chaos controller
 - [`constantsignalnode.py`](constantsignalnode.py) — setpoint input
+- [`docs/CAUSAL_REDUCTION.md`](docs/CAUSAL_REDUCTION.md) — which parts of the loop the rhythm needs (8 Nov 2026)
+- [`experiments/`](experiments) — headless host harness and the reduction experiment; [`tests/`](tests) — 8 regression tests; [`results/`](results) — numbers and figure
 
 For the full node-based environment, see [PerceptionLab](https://github.com/anttiluode/PerceptionLab).
