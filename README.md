@@ -6,6 +6,8 @@
 
 > **Update, 8 November 2026: [causal reduction](docs/CAUSAL_REDUCTION.md).** The whole image branch can be replaced by one lookup table r = F_D(q) with a bit-exact identical trajectory. The faithful reload has an exact period of **59** ticks, because the host's loop takes four ticks. The September "52" is exactly what a one-tick loop gives. The integral state is never read in this mode. Clamping the feedback stops the rhythm, and permuting the controller's window (same mean and variance) changes the future every time. Two statements below are corrected in place.
 
+> **Update, 10 November 2026: [the forgetting clock](docs/FORGETTING_CLOCK.md).** The loop beats when it forgets its last beat. Period = 50 (memory) + 1 (noticing) + 4 (kick reaches the blind zone) + 4 (zero comes back as a spike) = **59**, and the law W + 2d + c (c from −1 to +4) holds in 186 of 204 settings. The 50-sample window acts as a refractory period. Every beat passes through the blind zone: the zero reading is what fires the spike. From 3000 random starts there is **one** attractor. Small kicks are erased completely; a strong negative kick resets the clock like a premature heartbeat. And the beat needs **abrupt** forgetting: soften the window's edge beyond about twice the loop delay and the same controller regulates quietly with no pulse. So the loop is an excitable unit (threshold, refractory period, reset). It is not a neuron and not a synapse.
+
 This repository freezes the small Perception Lab graph that helped start the later Geometric Neuron / Operaattori / SighImageSuper line of work.
 
 The original graph is [`ecg.json`](ecg.json). The node implementations used by that graph are copied here so the mechanism can be audited without relying on memory or on a later Perception Lab version.
@@ -190,6 +192,7 @@ That is much stronger, and much more defensible, than saying that the old ECG lo
 - [`coupler.py`](coupler.py) — finite-memory homeostatic/edge-of-chaos controller
 - [`constantsignalnode.py`](constantsignalnode.py) — setpoint input
 - [`docs/CAUSAL_REDUCTION.md`](docs/CAUSAL_REDUCTION.md) — which parts of the loop the rhythm needs (8 Nov 2026)
-- [`experiments/`](experiments) — headless host harness and the reduction experiment; [`tests/`](tests) — 8 regression tests; [`results/`](results) — numbers and figure
+- [`docs/FORGETTING_CLOCK.md`](docs/FORGETTING_CLOCK.md) — what the rhythm is: a clock that beats when it forgets its last beat (10 Nov 2026)
+- [`experiments/`](experiments) — headless host harness, the reduction experiment and the forgetting-clock experiment; [`tests/`](tests) — 13 regression tests; [`results/`](results) — numbers and figure
 
 For the full node-based environment, see [PerceptionLab](https://github.com/anttiluode/PerceptionLab).
