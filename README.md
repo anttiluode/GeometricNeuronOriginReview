@@ -8,6 +8,8 @@
 
 > **Update, 10 November 2026: [the forgetting clock](docs/FORGETTING_CLOCK.md).** The loop beats when it forgets its last beat. Period = 50 (memory) + 1 (noticing) + 4 (kick reaches the blind zone) + 4 (zero comes back as a spike) = **59**, and the law W + 2d + c (c from −1 to +4) holds in 186 of 204 settings. The 50-sample window acts as a refractory period. Every beat passes through the blind zone: the zero reading is what fires the spike. From 3000 random starts there is **one** attractor. Small kicks are erased completely; a strong negative kick resets the clock like a premature heartbeat. And the beat needs **abrupt** forgetting: soften the window's edge beyond about twice the loop delay and the same controller regulates quietly with no pulse. So the loop is an excitable unit (threshold, refractory period, reset). It is not a neuron and not a synapse.
 
+> **10 November 2026 — colony follow-up: [ReturnToGeometricNeuron](https://github.com/anttiluode/ReturnToGeometricNeuron).** This archival repository preserves the **single-loop** mechanism; the separate six-unit study connects copies through previously unused splitter taps and tests slow weights, response phase, seizure-like common forcing, directed perturbations and two-sequence replay. Its one-sign **News** rule stores an order but fails to construct a reliable bidirectional replay network. A frozen, **hand-specified** bidirectional chain can replay either direction when cued; a later **engineered nearest-predecessor event counter** reconstructs adjacent links from externally forced teaching rhythms, but this is not endogenous learning by the oscillators. It succeeds at teaching gaps 1–5 ticks and fails outside its built-in credit window; no-cue replay depends strongly on which sequence was taught last. Learned 16-tap filters do **not** outperform a fixed beat detector (taps 0–1) on this task. The missing joint demonstration is *state-dependent, self-generated learning* that constructs a useful routing structure. This does not make the original loop a biological neuron or establish a general AI model. [Colony code and six-round receipts](https://github.com/anttiluode/ReturnToGeometricNeuron/blob/main/README.md).
+
 This repository freezes the small Perception Lab graph that helped start the later Geometric Neuron / Operaattori / SighImageSuper line of work.
 
 The original graph is [`ecg.json`](ecg.json). The node implementations used by that graph are copied here so the mechanism can be audited without relying on memory or on a later Perception Lab version.
@@ -17,6 +19,8 @@ The source laboratory is:
 - [anttiluode/PerceptionLab — "Lego set science"](https://github.com/anttiluode/PerceptionLab)
 
 Later descendants of the same question include:
+
+- [ReturnToGeometricNeuron — coupled-loop experiments with negative and positive controls](https://github.com/anttiluode/ReturnToGeometricNeuron)
 
 - [SighImageSuper](https://github.com/anttiluode/SighImageSuper)
 - [OperaattoriAktiivinenDendriitti](https://github.com/anttiluode/OperaattoriAktiivinenDendriitti)
