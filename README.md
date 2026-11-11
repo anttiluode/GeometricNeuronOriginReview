@@ -2,6 +2,12 @@
 
 ![pic](pic.png)
 
+> **Repository role — archival origin review, not a Geometric Neuron version (11 November 2026).** This repository preserves the original [Perception Lab](https://github.com/anttiluode/PerceptionLab) `ecg.json`, its node implementations, and the causal reconstruction of the accidental ECG-like feedback loop. Its purpose is to distinguish what the original machine actually did from later interpretations. Do **not** count this audit as GeometricNeuron V26 or V27.
+>
+> **Where the experiments continued:** [ReturnToGeometricNeuron](https://github.com/anttiluode/ReturnToGeometricNeuron) tests coupled copies of the reduced loop; [GeometricNeuronSurfaceListener](https://github.com/anttiluode/GeometricNeuronSurfaceListener) (informally **V26**) documents ten more rounds, including a critical correction to the reduction: the archived Homeostatic Coupler's `setpoint_mod` port was live but held at Constant Signal 1.0 (effective setpoint 0.6). Allowing another unit's outputs to modify that port evokes a beat **through the unit's own loop**; the earlier output-override triggers were additions. `gain_mod` is inactive in this saved mode. [GeometricNeuronV27](https://github.com/anttiluode/GeometricNeuronV27) is the proposed spatial cable / ring successor, **not a demonstrated result here**. See [Genealogy](https://github.com/anttiluode/Genealogy) for the carefully separated provenance and evidence.
+>
+> **Methodological warning:** The original scalar reduction held the setpoint fixed at 0.6. It was faithful to the archived *constant* wiring, but did not prove that the live `setpoint_mod` input lacked computational significance. Before simplifying an inherited system, inspect **every input port** and record which inputs are fixed, live, computed-but-unused, or omitted from the reduction.
+
 **ECG JSON / ECG-like pulse finally explained**
 
 > **Update, 8 November 2026: [causal reduction](docs/CAUSAL_REDUCTION.md).** The whole image branch can be replaced by one lookup table r = F_D(q) with a bit-exact identical trajectory. The faithful reload has an exact period of **59** ticks, because the host's loop takes four ticks. The September "52" is exactly what a one-tick loop gives. The integral state is never read in this mode. Clamping the feedback stops the rhythm, and permuting the controller's window (same mean and variance) changes the future every time. Two statements below are corrected in place.
